@@ -122,7 +122,8 @@ lfError lfDatabase::Load ()
         else
             err = Load (SystemUpdatesLocation);
 
-    Load (HomeDataDir);
+    if (Load (HomeDataDir) == LF_NO_ERROR)
+        err = LF_NO_ERROR;
 
     return err == LF_NO_ERROR ? LF_NO_ERROR : LF_NO_DATABASE;
 }
